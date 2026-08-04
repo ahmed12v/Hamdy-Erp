@@ -1,1 +1,84 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+}
+:root {
+  --fs-xs: clamp(0.75rem, 0.7rem + 0.2vw, 0.85rem);
+  --fs-sm: clamp(0.875rem, 0.8rem + 0.3vw, 1rem);
+  --fs-md: clamp(1rem, 0.95rem + 0.4vw, 1.125rem);
+  --fs-lg: clamp(1.25rem, 1rem + 0.8vw, 1.5rem);
+  --fs-xl: clamp(1.75rem, 1.2rem + 1.5vw, 2.5rem);
+  --fs-xxl: clamp(2.25rem, 1.5rem + 2vw, 3.5rem);
+  --primary: #FF5000;
+  --primary-hover: #e88400;
+  --secondary: #0b1736;
+  --secondary-light: #1a2957;
+  --body-bg: #f5f7fb;
+  --card-bg: #ffffff;
+  --text-primary: #222222;
+  --text-secondary: #7d8798;
+  --border-color: #cecece;
+  --pill-bg: #eef2f7;
+  --shadow-sm: 0 2px 8px rgba(11, 23, 54, 0.05);
+  --shadow-md: 0 6px 20px rgba(11, 23, 54, 0.08);
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --transition: all 0.3s ease;
+  --sidebarbackground:#ffffff;
+  --togle-bg:#ffffff;
+  --sidebar-border:#ebebf5;
+  --topborder-side:#ebebf5;
+  --before-bg:#ebebf5;
+  --oddbg:#f8f9fc;
+  --evenbg:#efefef;
+  --tr-borfer:#f0f2f5;
+  --next-color:#ffffff;
+  --page-number-color:#111a2e;
+  --nav-item-color:#4a4a6a;
+  --pages-pading : 24px;
+  --input-placeholder:#808082;
+  --login-right-prime:#FF5000;
+  --scroll-color:#9ca3af;
+  --tr-table-hovr:#f1f1f1;
+}
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--body-bg);
+  color: var(--text-primary);
+  transition: var(--transition);
+}
+/* Desktop Large */
+html {
+  font-size: 16px;
+}
+/* Laptop */
+@media (max-width: 1200px) {
+  html {
+    font-size: 15px;
+  }
+}
+/* Tablet Landscape */
+@media (max-width: 992px) {
+  html {
+    font-size: 14px;
+  }
+}
+/* Tablet */
+@media (max-width: 768px) {
+  html {
+    font-size: 13px;
+  }
+}
+/* Mobile Large */
+@media (max-width: 576px) {
+  html {
+    font-size: 12px;
+  }
+}
+/* Mobile Small */
+@media (max-width: 400px) {
+  html {
+    font-size: 11px;
+  }
+}

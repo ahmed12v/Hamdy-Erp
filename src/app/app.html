@@ -1,1 +1,21 @@
-<router-outlet></router-outlet>
+<div>
+
+    <div class="layout">
+  <app-navbar
+    [isExpanded]="isExpanded"
+    (toggleSidebar)="toggleSidebar()">
+  </app-navbar>
+
+  <main
+    class="content"
+    [class.content-expanded]="isExpanded"
+    [class.content-collapsed]="!isExpanded">
+
+    <router-outlet ></router-outlet>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      
+
+  </main>
+
+</div>
+
+
+</div>

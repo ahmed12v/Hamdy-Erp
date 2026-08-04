@@ -1,0 +1,109 @@
+<aside
+  class="sidebar"
+  [class.expanded]="isExpanded"
+  [class.collapsed]="!isExpanded"
+>
+  <!-- sidebar top -->
+  <div class="sidebar-top">
+    <div class="logo-circle">
+      <span>3D</span>
+    </div>
+
+    <span class="brand-name"> Hamdy </span>
+
+    <button
+      class="toggle-btn"
+      (click)="toggle()"
+      [attr.aria-label]="isExpanded ? 'Collapse' : 'Expand'"
+    >
+      <i
+        class="ti"
+        [class.ti-chevron-left]="isExpanded"
+        [class.ti-chevron-right]="!isExpanded"
+      ></i>
+    </button>
+  </div>
+
+ <!-- main nav -->
+  <nav class="nav-section">
+
+    <!-- Dashboard -->
+    <a
+      class="nav-item"
+      routerLink="/dashboard"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <i class="ti ti-layout-dashboard nav-icon"></i>
+      <span class="nav-label"> Dashboard </span>
+    </a>
+    <a
+      class="nav-item"
+      routerLink="/Customers"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <i class="ti ti-users  nav-icon"></i>
+      <span class="nav-label"> Customers </span>
+    </a>
+
+    <a
+      class="nav-item"
+      routerLink="/Suppliers"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <i class="ti ti-package nav-icon"></i>
+      <span class="nav-label"> Suppliers </span>
+    </a>
+
+      <a
+      class="nav-item"
+      routerLink="/Materials"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <i class="ti ti-3d-cube-sphere nav-icon"></i>
+      <span class="nav-label"> Materials </span>
+    </a>
+
+        <a
+      class="nav-item"
+      routerLink="/Orders"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <i class="ti ti-shopping-cart nav-icon"></i>
+      <span class="nav-label"> Orders </span>
+    </a>
+
+        <a
+      class="nav-item"
+      routerLink="/Purchases"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <i class="ti ti-shopping-bag nav-icon"></i>
+      <span class="nav-label"> Purchases </span>
+    </a>
+
+    <a
+      class="nav-item"
+      routerLink="/Inventory"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <i class="ti ti-box nav-icon"></i>
+      <span class="nav-label"> Inventory </span>
+    </a>
+
+  
+   
+
+
+    
+   
+
+  </nav>
+
+</aside>
