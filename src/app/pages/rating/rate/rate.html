@@ -1,0 +1,167 @@
+<div class="rate-page">
+
+
+  <div class="page-header">
+    <div>
+      <h2>Rate Calculator</h2>
+      <p>
+        Calculate order price based on material and production details.
+      </p>
+    </div>
+  </div>
+
+
+
+  <div class="rate-layout">
+
+
+    <!-- Inputs -->
+     <form [formGroup]="RateForm" (ngSubmit)="getrate()">
+
+    <div class="rate-card">
+
+
+      <h3>Rate Information</h3>
+
+
+      <div class="form-grid">
+
+
+        <div class="form-group full">
+          <label>Material</label>
+
+          <select formControlName="materialId">
+            <option > ---- select ---- </option>
+            @for (item of allMatrials(); track $index) {
+                 <option [value]="item.id"> {{item.materialName}}  {{item.color}} </option>
+            }
+          </select>
+        </div>
+
+
+
+        <div class="form-group">
+          <label>Weight (Gram)</label>
+          <input type="number" formControlName="weight">
+        </div>
+
+
+
+        <div class="form-group">
+          <label>Gram Price</label>
+          <input type="number" formControlName="gramPrice">
+        </div>
+
+
+
+        <div class="form-group">
+          <label>Hours</label>
+          <input type="number" formControlName="hours">
+        </div>
+
+
+
+        <div class="form-group">
+          <label>Machine Hour Price</label>
+          <input type="number" formControlName="machineHourPrice">
+        </div>
+
+
+
+        <div class="form-group">
+          <label>Electricity Hour Price</label>
+          <input type="number" formControlName="electricityHourPrice">
+        </div>
+
+
+
+        <div class="form-group">
+          <label>Labor Hour Price</label>
+          <input type="number"formControlName="laborHourPrice">
+        </div>
+
+
+
+        <div class="form-group">
+          <label>Waste %</label>
+          <input type="number" formControlName="wastePercentage">
+        </div>
+
+
+
+        <div class="form-group">
+          <label>Profit %</label>
+          <input type="number" formControlName="profitPercentage">
+        </div>
+
+
+      </div>
+
+
+      <button class="calculate-btn">
+        Calculate Rate
+      </button>
+
+
+    </div>
+
+    </form>
+
+
+    <!-- Result -->
+
+    <div class="result-card">
+
+
+      <h3>Final Rate</h3>
+
+
+      <div class="price-box">
+
+        <span>Total Price</span>
+
+        <h1>
+          {{rateResult()?.finalPrice}} EGP
+        </h1>
+
+      </div>
+
+
+
+      <div class="breakdown">
+
+
+        <div>
+          <span>Material Cost</span>
+          <b>{{rateResult()?.materialCost}} EGP</b>
+        </div>
+
+
+        <div>
+          <span>Machine Cost</span>
+          <b>{{rateResult()?.machineCost}} EGP</b>
+        </div>
+
+
+        <div>
+          <span>Electricity</span>
+          <b>{{rateResult()?.electricityCost}} EGP</b>
+        </div>
+
+
+        <div>
+          <span>Labor</span>
+          <b>{{rateResult()?.laborCost}} EGP</b>
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+</div>

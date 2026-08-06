@@ -1,1 +1,68 @@
-<p>all-matrials works!</p>
+<div class="page-header">
+
+  <div class="header-content">
+    <h2>Materials</h2>
+    <p>Manage your materials and monitor current stock.</p>
+  </div>
+
+  <button class="add-btn" routerLink="/addMaterials">
+    <i class="ti ti-plus"></i>
+    Add Material
+  </button>
+
+</div>
+
+
+<div class="table-card">
+
+  <table>
+
+    <thead>
+      <tr>
+        <th>Material Name</th>
+        <th>Color</th>
+        <th>Unit</th>
+        <th>Current Stock</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+
+      @for (item of allMatrials(); track item.id) {
+
+      <tr>
+
+        <td>{{ item.materialName }}</td>
+
+        <td>
+          <span class="color-badge">
+            {{ item.color }}
+          </span>
+        </td>
+
+        <td>{{ item.unit }}</td>
+
+        <td>
+          <span class="stock-badge">
+            {{ item.currentStock }}
+          </span>
+        </td>
+
+        <td>
+
+          <button class="delete-btn" (click)="deletethis(item.id)">
+            <i class="ti ti-trash"></i>
+          </button>
+
+        </td>
+
+      </tr>
+
+      }
+
+    </tbody>
+
+  </table>
+
+</div>

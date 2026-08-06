@@ -117,14 +117,14 @@ close(){
     if(this.editForm.valid){
       this._supplierService.editSupplier(this.puplicId(), this.editForm.value).subscribe({
         next:res=>{
-               console.log(res);
+               //console.log(res);
                this.getAllSupplier()
                this.showMessage(res.message , 'success')
                this.closeEdit()
                
         },
         error:err=>{
-          console.log(err);
+          //console.log(err);
           this.showMessage(err.message , 'error')
           
         }

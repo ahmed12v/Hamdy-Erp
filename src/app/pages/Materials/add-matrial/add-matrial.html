@@ -1,1 +1,99 @@
-<p>add-matrial works!</p>
+<div class="add-material-page p-5">
+
+    <div class="page-header">
+        <div>
+            <h2>Add Material</h2>
+            <p>Add a new material to your inventory.</p>
+        </div>
+    </div>
+
+   <form [formGroup]="addForm" (ngSubmit)="addNow()">
+    <div class="material-card">
+
+        <div class="form-grid">
+
+
+            <div class="form-group">
+                <label>Material Name</label>
+                <input 
+                formControlName="materialName"
+                    type="text"
+                    placeholder="Enter material name">
+            </div>
+
+
+
+            <div class="form-group">
+                <label>Color</label>
+
+                <select   formControlName="colorId">
+                    <option disabled selected>Select Color</option>
+                    @for (item of allcolors(); track $index) {
+                        <option [value]="item.id"> {{item.name}} </option>
+
+                    }
+                   
+                </select>
+
+            </div>
+
+
+
+            <div class="form-group" >
+                <label>Unit</label>
+
+                <input 
+                formControlName="unit"
+                    type="text"
+                    placeholder="Example: Gram">
+
+            </div>
+
+
+
+
+            <div class="form-group">
+                <label>Current Stock</label>
+
+                <input 
+                 formControlName="currentStock"
+                    type="number"
+                    placeholder="Enter stock quantity" 
+                    >
+                    
+            </div>
+
+
+
+
+            <div class="form-group full-width">
+
+                <label>Gram Price</label>
+
+                <input 
+                formControlName="gramPrice"
+                    type="number"
+                    placeholder="Enter gram price">
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <div class="form-actions">
+
+            <button class="save-btn">
+                <i class="ti ti-device-floppy"></i>
+                Save Material
+            </button>
+
+        </div>
+
+
+    </div>
+  </form>
+
+</div>

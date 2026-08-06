@@ -1,3 +1,4 @@
+import { AddMatrial } from './pages/Materials/add-matrial/add-matrial';
 
 import { Routes } from "@angular/router";
 
@@ -47,6 +48,20 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/Materials/all-matrials/all-matrials').then(
         (c) => c.AllMatrials
+      ),
+  },
+  {
+    path: "addMaterials",
+    loadComponent: () =>
+      import('./pages/Materials/add-matrial/add-matrial').then(
+        (c) => c.AddMatrial
+      ),
+  },
+  {
+    path: "rating",
+    loadComponent: () =>
+      import('./pages/rating/rate/rate').then(
+        (c) => c.Rate
       ),
   },
   {

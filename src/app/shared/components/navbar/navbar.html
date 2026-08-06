@@ -69,6 +69,15 @@
 
         <a
       class="nav-item"
+      routerLink="/rating"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
+      <i class="ti ti-calculator nav-icon"></i>
+      <span class="nav-label"> Clac rate  </span>
+    </a>
+        <a
+      class="nav-item"
       routerLink="/Orders"
       routerLinkActive="active"
       [routerLinkActiveOptions]="{ exact: true }"
