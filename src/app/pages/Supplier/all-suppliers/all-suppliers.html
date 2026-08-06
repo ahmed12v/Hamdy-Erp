@@ -1,1 +1,267 @@
-<p>all-suppliers works!</p>
+<div class="suppliers-page">
+
+  <!-- Header -->
+  <div class="page-header">
+
+    <div class="header-content">
+      <h2>Suppliers</h2>
+      <p>Manage your suppliers and their contact details.</p>
+    </div>
+
+    <button class="add-btn"routerLink="/addSupplier">
+      <i class="fa-solid fa-plus"></i>
+      <span>Add Supplier</span>
+    </button>
+
+  </div>
+
+  <!-- Search -->
+  <div class="search-section">
+
+    <div class="search-box">
+      <i class="fa-solid fa-magnifying-glass"></i>
+
+      <input
+        type="text"
+        placeholder="Search suppliers..."
+      >
+    </div>
+
+  </div>
+
+  <!-- Cards -->
+
+  <div class="suppliers-grid">
+
+    <!-- Card -->
+
+    @for (item of allSupplier()?.data; track $index) {
+         <div class="supplier-card">
+
+      <div class="card-top">
+
+        <div class="supplier-icon">
+          <i class="fa-solid fa-building"></i>
+        </div>
+
+        <div class="supplier-title">
+          <h3> {{item.name}} </h3>
+          <span>Supplier</span>
+        </div>
+
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="supplier-info">
+
+       
+
+        <div class="info-item">
+          <span>Phone</span>
+          <p> {{item.phone}} </p>
+        </div>
+
+        <div class="info-item">
+          <span>Email</span>
+          <p>{{item.email}}</p>
+        </div>
+
+        <div class="info-item">
+          <span>Address</span>
+          <p>{{item.address}}</p>
+        </div>
+
+        <div class="info-item">
+          <span>Notes</span>
+          <p>{{item.notes}}</p>
+        </div>
+
+      </div>
+
+      <div class="card-actions">
+
+        <button class="edit-btn" (click)="openEdit(item)">
+          <i class="fa-solid fa-pen"></i>
+        </button>
+
+        <button class="delete-btn" (click)="deleteSup(item.publicId)">
+          <i class="fa-solid fa-trash"></i>
+        </button>
+
+      </div>
+
+    </div>
+    }
+    
+
+  </div>
+
+</div>
+
+
+@if (showpopoBool()) {
+    <div class="modal-overlay">
+
+  <div class="edit-modal">
+
+
+    <!-- Header -->
+    <div class="modal-header">
+
+      <div>
+        <h2>Edit Supplier</h2>
+        <p>Update supplier information.</p>
+      </div>
+
+
+      <button class="close-btn" (click)="closeEdit()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+    </div>
+
+
+
+    <!-- Form -->
+  
+    <form [formGroup]="editForm" (ngSubmit)="editNow()">
+    <div class="form-grid">
+
+
+      <!-- Name -->
+      <div class="form-group">
+
+        <label>Supplier Name</label>
+
+        <input
+        formControlName="name"
+          type="text"
+          placeholder="Enter supplier name"
+        >
+          
+      </div>
+
+
+
+      <!-- Phone -->
+      <div class="form-group">
+
+        <label>Phone</label>
+
+        <input
+        formControlName="phone"
+          type="text"
+          placeholder="Enter phone number"
+        >
+
+      </div>
+
+
+
+      <!-- Email -->
+      <div class="form-group">
+
+        <label>Email</label>
+
+        <input
+        formControlName="email"
+          type="email"
+          placeholder="Enter email address"
+        >
+
+      </div>
+
+
+
+      <!-- Address -->
+      <div class="form-group">
+
+        <label>Address</label>
+
+        <input
+        formControlName="address"
+          type="text"
+          placeholder="Enter supplier address"
+        >
+
+      </div>
+
+
+
+      <!-- Notes -->
+
+      <div class="form-group full-width">
+
+        <label>Notes</label>
+
+        <textarea
+          rows="4"
+          placeholder="Enter notes">
+        </textarea>
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- Actions -->
+
+    <div class="modal-actions">
+
+      <button class="cancel-btn" type="button" (click)="closeEdit()">
+        Cancel
+      </button>
+
+      <button class="update-btn" type="submit">
+        Update Supplier
+      </button>
+
+
+    </div>
+
+   </form>
+
+
+  </div>
+
+</div>
+}
+@if(show()){
+  <div class="message-overlay" >
+
+  <div class="message-box" [class.success]="type === 'success'" [class.error]="type === 'error'">
+
+    <div class="message-icon">
+
+      <i 
+        class="ti"
+        [class.ti-check]="type === 'success'"
+        [class.ti-x]="type === 'error'">
+      </i>
+
+    </div>
+
+
+    <h4>
+      {{type === 'success' ? 'Success' : 'Error'}}
+    </h4>
+
+
+    <p>
+      {{message}}
+    </p>
+
+
+    <button (click)="close()">
+      OK
+    </button>
+
+  </div>
+
+</div>
+}
+
+

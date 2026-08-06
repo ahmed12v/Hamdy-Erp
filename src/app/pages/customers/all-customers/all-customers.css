@@ -424,3 +424,36 @@
   color: var(--secondary);
 
 }
+.search-section {
+  margin-bottom: 35px;
+}
+
+.search-box {
+  height: 56px;
+  background: white;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  border: 1px solid #e9edf2;
+  transition: .3s;
+}
+
+.search-box:focus-within {
+  border-color: #ea5b23;
+  box-shadow: 0 0 0 4px rgba(234,91,35,.08);
+}
+
+.search-box i {
+  color: #999;
+  font-size: 18px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  flex: 1;
+  margin-left: 14px;
+  font-size: 15px;
+  background: transparent;
+}

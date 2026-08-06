@@ -1,1 +1,163 @@
-<p>add-supplier works!</p>
+<div class="add-supplier-page">
+
+  <!-- Header -->
+  <div class="page-header">
+
+    <div>
+      <h2>Add Supplier</h2>
+      <p>Create a new supplier and save their information.</p>
+    </div>
+
+  </div>
+
+
+  <!-- Form Card -->
+   <form [formGroup]="SupForm" (ngSubmit)="addNow()">
+  <div class="form-card">
+
+
+    <div class="form-grid">
+
+
+      <!-- Name -->
+      <div class="form-group">
+
+        <label>Supplier Name</label>
+
+        <input
+        formControlName="name"
+          type="text"
+          placeholder="Enter supplier name"
+        >
+           @if (SupForm.get('name')?.touched && SupForm.get('name')?.hasError('required')) {
+    <small class="error-message">
+      Supplier name is required
+    </small>
+  }
+      </div>
+
+
+      <!-- Phone -->
+      <div class="form-group">
+
+        <label>Phone</label>
+
+        <input
+        formControlName="phone"
+          type="text"
+          placeholder="Enter phone number"
+        >
+        @if (SupForm.get('phone')?.touched && SupForm.get('phone')?.hasError('required')) {
+    <small class="error-message">
+      Supplier phone is required
+    </small>
+  }
+
+      </div>
+
+
+      <!-- Email -->
+      <div class="form-group">
+
+        <label>Email</label>
+
+        <input
+        formControlName="email"
+          type="email"
+          placeholder="Enter email address"
+        >
+ @if (SupForm.get('email')?.touched && SupForm.get('email')?.hasError('required')) {
+    <small class="error-message">
+      Supplier email is required
+    </small>
+  }
+      </div>
+
+
+      <!-- Address -->
+      <div class="form-group">
+
+        <label>Address</label>
+
+        <input
+        formControlName="address"
+          type="text"
+          placeholder="Enter supplier address"
+        >
+          @if (SupForm.get('address')?.touched && SupForm.get('address')?.hasError('required')) {
+    <small class="error-message">
+      Supplier address is required
+    </small>
+  }
+      </div>
+
+
+      <!-- Notes -->
+      <div class="form-group full-width">
+
+        <label>Notes</label>
+
+        <textarea
+        formControlName="notes"
+          rows="5"
+          placeholder="Enter notes">
+        </textarea>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- Actions -->
+
+    <div class="form-actions">
+
+
+      <button class="save-btn">
+        Save Supplier
+      </button>
+
+
+    </div>
+
+
+  </div>
+  </form>
+
+</div>
+
+@if(show()){
+  <div class="message-overlay" >
+
+  <div class="message-box" [class.success]="type === 'success'" [class.error]="type === 'error'">
+
+    <div class="message-icon">
+
+      <i 
+        class="ti"
+        [class.ti-check]="type === 'success'"
+        [class.ti-x]="type === 'error'">
+      </i>
+
+    </div>
+
+
+    <h4>
+      {{type === 'success' ? 'Success' : 'Error'}}
+    </h4>
+
+
+    <p>
+      {{message}}
+    </p>
+
+
+    <button (click)="close()">
+      OK
+    </button>
+
+  </div>
+
+</div>
+}
