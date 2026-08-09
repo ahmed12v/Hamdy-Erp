@@ -1,4 +1,3 @@
-import { AddMatrial } from './pages/Materials/add-matrial/add-matrial';
 
 import { Routes } from "@angular/router";
 
@@ -69,6 +68,13 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/order/allorder/allorder').then(
         (c) => c.Allorder
+      ),
+  },
+  {
+    path: "createOrders",
+    loadComponent: () =>
+      import('./pages/order/greate-order/greate-order').then(
+        (c) => c.GreateOrder
       ),
   },
   {

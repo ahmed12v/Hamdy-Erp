@@ -1,0 +1,325 @@
+:host {
+  --primary: #ff5000;
+  --secondary: #0b1736;
+  --body-bg: #f5f7fb;
+  --card-bg: #ffffff;
+  --border: #e7eaf0;
+  --text: #273247;
+  --muted: #7d8798;
+
+  display: block;
+}
+.empty-state {
+   padding: 70px 20px;
+    text-align: center; 
+  } .empty-icon {
+     width: 56px; 
+     height: 56px;
+    margin: 0 auto 16px;
+       display: flex;
+       align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+         background: #fff1eb;
+         color: #ff5000;
+          font-size: 21px; 
+        }
+         .empty-state h3 { margin: 0 0 6px; color: #0b1736; font-size: 18px; font-weight: 700; 
+        } .empty-state p { margin: 0; color: #7d8798; font-size: 13px; }
+
+
+
+/* =========================
+   Page
+========================= */
+
+.orders-page {
+  min-height: 100vh;
+  padding: 30px;
+
+  background: var(--body-bg);
+}
+
+
+/* =========================
+   Header
+========================= */
+
+.page-header {
+ 
+  margin: 0 auto 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+
+.page-header h2 {
+  margin: 0 0 5px;
+
+  color: var(--secondary);
+
+  font-size: 25px;
+  font-weight: 700;
+}
+
+
+.page-header p {
+  margin: 0;
+
+  color: var(--muted);
+
+  font-size: 14px;
+}
+
+
+/* =========================
+   Create Button
+========================= */
+
+.create-btn {
+  height: 42px;
+
+  padding: 0 17px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border: none;
+  border-radius: 8px;
+
+  background: var(--primary);
+  color: #fff;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+
+/* =========================
+   Card
+========================= */
+
+.orders-card {
+
+  margin: 0 auto;
+
+  background: var(--card-bg);
+
+  border: 1px solid var(--border);
+  border-radius: 12px;
+
+  box-shadow: 0 4px 18px rgba(11, 23, 54, 0.05);
+
+  overflow: hidden;
+}
+
+
+/* =========================
+   Table
+========================= */
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+
+table {
+  width: 100%;
+  min-width: 850px;
+
+  border-collapse: collapse;
+}
+
+
+thead {
+  background: #fafbfc;
+}
+
+
+th {
+  padding: 15px 20px;
+
+  color: #707a8c;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  text-align: left;
+
+  border-bottom: 1px solid var(--border);
+
+  white-space: nowrap;
+}
+
+
+td {
+  padding: 17px 20px;
+
+  color: var(--text);
+
+  font-size: 13px;
+
+  border-bottom: 1px solid #f0f2f5;
+
+  white-space: nowrap;
+}
+
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================
+   Order Number
+========================= */
+
+.order-number {
+  color: var(--secondary);
+
+  font-weight: 700;
+}
+
+
+/* =========================
+   Color
+========================= */
+
+.color {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+
+  color: var(--text);
+
+  font-size: 13px;
+}
+
+
+.color-dot {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #ffffff;
+
+  border: 1px solid #c8cdd5;
+}
+
+
+/* =========================
+   Price
+========================= */
+
+.price {
+  color: var(--primary);
+
+  font-weight: 700;
+}
+
+
+/* =========================
+   Date
+========================= */
+
+.date {
+  color: var(--muted);
+
+  font-size: 12px;
+}
+
+
+/* =========================
+   Action
+========================= */
+
+.action-cell {
+  width: 50px;
+
+  text-align: center;
+}
+
+
+.delete-btn {
+  width: 34px;
+  height: 34px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #eceef2;
+  border-radius: 7px;
+
+  background: #fff;
+
+  color: #8a93a2;
+
+  font-size: 13px;
+
+  cursor: pointer;
+}
+
+
+.delete-btn:hover {
+  color: #d94a3d;
+  border-color: #f0d4d1;
+  background: #fff7f6;
+}
+
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 768px) {
+
+  .orders-page {
+    padding: 20px 15px;
+  }
+
+
+  .page-header {
+    align-items: flex-start;
+  }
+
+
+  .page-header h2 {
+    font-size: 22px;
+  }
+
+
+  .create-btn {
+    flex-shrink: 0;
+  }
+
+
+  th,
+  td {
+    padding: 14px 16px;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .page-header {
+    flex-direction: column;
+  }
+
+
+  .create-btn {
+    width: 100%;
+  }
+
+}

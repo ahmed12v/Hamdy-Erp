@@ -1,1 +1,246 @@
-<p>greate-order works!</p>
+<div class="add-order-page">
+
+  <!-- Header -->
+  <div class="page-header">
+    <div>
+      <h2>Create Order</h2>
+      <p>Create a new order and calculate its total cost.</p>
+    </div>
+
+    <button class="back-btn" (click)="goBack()">
+      <i class="fa-solid fa-arrow-left"></i>
+      Back
+    </button>
+  </div>
+
+
+  <!-- Form Card -->
+   <form [formGroup]="orderGreteForm" (ngSubmit)="greateNow()">
+
+   
+  <div class="form-card">
+
+    <!-- Order Information -->
+    <div class="form-section">
+
+      <div class="section-header">
+        <div class="section-icon">
+          <i class="fa-solid fa-file-invoice"></i>
+        </div>
+
+        <div>
+          <h3>Order Information</h3>
+          <p>Select customer and material for this order.</p>
+        </div>
+      </div>
+
+
+      <div class="form-grid">
+
+        <!-- Customer -->
+        <div class="form-group">
+          <label>Customer <span class="required">*</span></label>
+
+          <select formControlName="customerId">
+            <option disabled selected value="">Select Customer</option>
+            @for (customer of customers(); track $index) {
+              <option [value]="customer.id"> {{customer.name}} </option>
+            }
+            
+
+          </select>
+        </div>
+
+
+        <!-- Material -->
+        <div class="form-group">
+          <label>Material <span class="required">*</span></label>
+
+          <select  formControlName="materialId">
+            <option disabled selected value="">Select Material</option>
+            @for (mat of allMatrials(); track $index) {
+                  <option [value]="mat.id"> {{mat.materialName }} {{mat.color}} </option>
+            }
+           
+
+          </select>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Material Cost -->
+    <div class="form-section">
+
+      <div class="section-header">
+        <div class="section-icon">
+          <i class="fa-solid fa-box"></i>
+        </div>
+
+        <div>
+          <h3>Material</h3>
+          <p>Enter the material quantity and gram price.</p>
+        </div>
+      </div>
+
+
+      <div class="form-grid">
+
+        <!-- Weight -->
+        <div class="form-group">
+          <label>Weight <span>(gram)</span> <span class="required">*</span></label>
+
+          <input
+          formControlName="weight"
+            type="number"
+            placeholder="Enter weight">
+        </div>
+
+
+        <!-- Gram Price -->
+        <div class="form-group">
+          <label>Gram Price <span class="required">*</span></label>
+
+          <input
+          formControlName="gramPrice"
+            type="number"
+            placeholder="Enter gram price">
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Production -->
+    <div class="form-section">
+
+      <div class="section-header">
+        <div class="section-icon">
+          <i class="fa-solid fa-gears"></i>
+        </div>
+
+        <div>
+          <h3>Production</h3>
+          <p>Enter machine, electricity and labor information.</p>
+        </div>
+      </div>
+
+
+      <div class="form-grid">
+
+        <!-- Hours -->
+        <div class="form-group">
+          <label> Hours  <span class="required">*</span></label>
+
+          <input
+          formControlName="hours"
+            type="number"
+            placeholder="Enter machine hours">
+        </div>
+
+
+        <!-- Machine Hour Price -->
+        <div class="form-group">
+          <label>Machine Hour Price</label>
+
+          <input
+          formControlName="machineHourPrice"
+            type="number"
+            placeholder="Enter machine hour price">
+        </div>
+
+
+        <!-- Electricity -->
+        <div class="form-group">
+          <label>Electricity Hour Price <span class="required">*</span></label>
+
+          <input
+          formControlName="electricityHourPrice"
+            type="number"
+            placeholder="Enter electricity hour price">
+        </div>
+
+
+        <!-- Labor -->
+        <div class="form-group">
+          <label>Labor Hour Price</label>
+
+          <input
+          formControlName="laborHourPrice"
+            type="number"
+            placeholder="Enter labor hour price">
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Profit & Waste -->
+    <div class="form-section d-none">
+
+      <div class="section-header">
+        <div class="section-icon">
+          <i class="fa-solid fa-chart-pie"></i>
+        </div>
+
+        <div>
+          <h3>Profit & Waste</h3>
+          <p>Set the waste and profit percentages.</p>
+        </div>
+      </div>
+
+
+      <div class="form-grid">
+
+        <!-- Waste -->
+        <div class="form-group">
+          <label>Waste Percentage</label>
+
+          <div class="input-with-symbol">
+            <input
+            formControlName="wastePercentage"
+              type="number"
+              placeholder="0">
+
+            <span>%</span>
+          </div>
+        </div>
+
+
+        <!-- Profit -->
+        <div class="form-group">
+          <label>Profit Percentage</label>
+
+          <div class="input-with-symbol">
+            <input
+            formControlName="profitPercentage"
+              type="number"
+              placeholder="0">
+
+            <span>%</span>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- Actions -->
+    <div class="form-actions">
+
+      <button class="create-btn">
+        <i class="fa-solid fa-plus"></i>
+        Create Now
+      </button>
+
+    </div>
+
+  </div>
+  </form>
+</div>
+

@@ -1,1 +1,110 @@
-<p>allorder works!</p>
+<div class="orders-page">
+
+  <!-- Header -->
+  <div class="page-header">
+    <div>
+      <h2>Orders</h2>
+      <p>Manage your orders.</p>
+    </div>
+
+    <button class="create-btn" routerLink="/createOrders">
+      <i class="fa-solid fa-plus"></i>
+      Create Order
+    </button>
+  </div>
+
+
+  <!-- Orders Table -->
+  <div class="orders-card">
+
+    <div class="table-wrapper">
+
+      <table>
+
+        <thead>
+          <tr>
+            <th>Order Number</th>
+            <th>Customer</th>
+            <th>Material</th>
+            <th>Color</th>
+            <th>Final Price</th>
+            <th>Created At</th>
+            <th></th>
+          </tr>
+        </thead>
+
+        <tbody>
+         @for (order of allOrders(); track $index) {
+             <tr>
+
+            <td>
+              <span class="order-number">
+                {{order.orderNumber}}
+              </span>
+            </td>
+
+            <td>
+              {{order.customer.name}}
+            </td>
+
+            <td>
+              {{order.items[0].materialName}}
+            </td>
+
+            <td>
+              <span class="color">
+                <span class="color-dot"></span>
+                {{order.items[0].color}}
+              </span>
+            </td>
+
+            <td>
+              <span class="price">
+                {{order.finalPrice}}
+              </span>
+            </td>
+
+            <td>
+              <span class="date">
+                 {{ order.createdAt | date:'dd/MM/yyyy - hh:mm a' }}
+              </span>
+            </td>
+
+            <td class="action-cell">
+
+              <button class="delete-btn" title="Delete" (click)="delte(order.id)">
+                <i class="fa-regular fa-trash-can"></i>
+              </button>
+
+            </td>
+
+          </tr>
+         }
+         
+         
+
+
+          
+
+        </tbody>
+       
+
+      </table>
+       @if(empty()){
+          <div class="d-flex w-100 justify-content-center">
+                    <div class="empty-state">
+             <div class="empty-icon">
+               <i class="fa-solid fa-receipt"></i>
+               </div> <h3>No Orders Yet</h3>
+                <p> There are no orders to display right now. </p>
+               </div>
+          </div>
+         
+         }
+
+    </div>
+
+  </div>
+
+</div>
+
