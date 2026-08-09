@@ -82,6 +82,7 @@ export class GreateOrder  implements OnInit{
  _orderSer=inject(OrdersService)
  errMsg=signal('')
  gMsg=signal('')
+ 
  greateNow(){
   if(this.orderGreteForm.valid){
     this._orderSer.greateOrderNow(this.orderGreteForm.value).subscribe({
