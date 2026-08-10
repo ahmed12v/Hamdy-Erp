@@ -29,6 +29,44 @@
 
 
 
+        .orders-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 18px;
+  padding: 16px 20px;
+
+  border-top: 1px solid #eef0f4;
+}
+
+.total-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  color: #182338;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.total-title i {
+  color: #ea5b23;
+  font-size: 16px;
+}
+
+.total-value {
+  color: #182338;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.total-value span {
+  margin-left: 5px;
+  color: #ea5b23;
+  font-size: 13px;
+  font-weight: 600;
+}
 /* =========================
    Page
 ========================= */

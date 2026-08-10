@@ -1,5 +1,5 @@
 import { Location } from '@angular/common';
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit, signal, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { amtrialsResponse } from '../../../core/interfaces/matrials/matrial';
 import { matrialService } from '../../../core/services/materials/matrialserv';
@@ -7,14 +7,17 @@ import { CustomerService } from '../../../core/services/customers/customer';
 import { AllCustomerss } from '../../../core/interfaces/customer/customer';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { OrdersService } from '../../../core/services/orders/orderService';
+import { Toaster } from '../../../shared/addtions/toaster/toaster';
 
 @Component({
   selector: 'app-greate-order',
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule , Toaster],
   templateUrl: './greate-order.html',
   styleUrl: './greate-order.css',
 })
 export class GreateOrder  implements OnInit{
+  @ViewChild(Toaster)
+  toast!: Toaster;
   ngOnInit(): void {
     this.getAllCustomers()
     this.getMatrial()
@@ -89,12 +92,14 @@ export class GreateOrder  implements OnInit{
       next:res=>{
         console.log(res);
         this.gMsg.set(res.message)
-        alert(this.gMsg())
+        //alert(this.gMsg())
+        this.toast.show(this.gMsg(),'success')
       },
       error:err=>{
         console.log(err);
         this.errMsg.set(err.error)
-        alert(this.errMsg())
+        //alert(this.errMsg())
+        this.toast.show(this.errMsg(),'error')
       }
     })
   }

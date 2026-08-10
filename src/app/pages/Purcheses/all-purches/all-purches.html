@@ -1,1 +1,197 @@
-<p>all-purches works!</p>
+
+<div class="p-4">
+
+    <div class="page-header ">
+  <div>
+    <h2>Create Purchase</h2>
+    <p>Add a new purchase to your inventory.</p>
+  </div>
+
+  <button class="back-btn">
+    <i class="fa-solid fa-arrow-left"></i>
+    Back
+  </button>
+</div>
+
+<form [formGroup]="purchaseForm" (ngSubmit)="addPurches()">
+<div class="purchase-container ">
+
+  <!-- Purchase Information -->
+  <div class="form-card">
+
+    <div class="card-header">
+      <div class="header-icon">
+        <i class="fa-solid fa-file-invoice"></i>
+      </div>
+
+      <div>
+        <h3>Purchase Information</h3>
+        <p>Enter the basic purchase details.</p>
+      </div>
+    </div>
+
+
+    <div class="form-grid">
+
+      <!-- Purchase Number -->
+      <div class="form-group">
+        <label>Purchase Number</label>
+
+        <div class="input-wrapper">
+          <i class="fa-solid fa-hashtag"></i>
+
+          <input
+          formControlName="purchaseNumber"
+            type="text"
+            placeholder="Enter purchase number">
+        </div>
+      </div>
+
+
+      <!-- Supplier -->
+      <div class="form-group">
+        <label>Supplier Name</label>
+
+        <div class="input-wrapper">
+          <i class="fa-solid fa-truck-field"></i>
+
+          <input
+          formControlName="supplierName"
+            type="text"
+            placeholder="Enter supplier name">
+        </div>
+      </div>
+
+
+      <!-- Purchase Date -->
+      <div class="form-group">
+        <label>Purchase Date</label>
+
+        <div class="input-wrapper">
+          <i class="fa-regular fa-calendar"></i>
+
+          <input
+          formControlName="purchaseDate"
+            type="date">
+        </div>
+      </div>
+
+
+      <!-- Notes -->
+      <div class="form-group full-width">
+        <label>Notes</label>
+
+        <textarea
+        formControlName="notes"
+          rows="3"
+          placeholder="Add any notes about this purchase..."></textarea>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Purchase Item -->
+  <div class="form-card" formGroupName="items">
+
+    <div class="card-header">
+      <div class="header-icon">
+        <i class="fa-solid fa-box"></i>
+      </div>
+
+      <div>
+        <h3>Purchase Item</h3>
+        <p>Add the item you purchased.</p>
+      </div>
+    </div>
+
+
+    <div class="form-grid">
+
+      <!-- Item Name -->
+      <div class="form-group">
+        <label>Item Name</label>
+
+        <div class="input-wrapper">
+          <i class="fa-solid fa-box-open"></i>
+
+          <input
+          formControlName="itemName"
+            type="text"
+            placeholder="Enter item name">
+        </div>
+      </div>
+
+
+      <!-- Type -->
+      <div class="form-group">
+        <label>Type</label>
+
+        <div class="input-wrapper">
+          <i class="fa-solid fa-layer-group"></i>
+
+          <select formControlName="type">
+            <option value="" selected disabled>
+              Select item type
+            </option>
+
+            <option value="Material" >Material</option>
+            <option value="Supply">Supply</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+      </div>
+
+
+      <!-- Quantity -->
+      <div class="form-group">
+        <label>Quantity</label>
+
+        <div class="input-wrapper">
+          <i class="fa-solid fa-cubes"></i>
+
+          <input
+          formControlName="quantity"
+            type="number"
+            placeholder="Enter quantity">
+        </div>
+      </div>
+
+
+      <!-- Unit Price -->
+      <div class="form-group">
+        <label>Unit Price</label>
+
+        <div class="input-wrapper">
+          <i class="fa-solid fa-money-bill"></i>
+
+          <input
+          formControlName="unitPrice"
+            type="number"
+            placeholder="Enter unit price">
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Actions -->
+  <div class="form-actions">
+
+    <button class="save-btn">
+      <i class="fa-solid fa-check"></i>
+      Create Purchase
+    </button>
+
+  </div>
+
+</div>
+</form>
+
+</div>
+<app-toaster></app-toaster>
+
+

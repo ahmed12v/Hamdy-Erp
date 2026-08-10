@@ -1,1 +1,280 @@
-<p>inventory-view works!</p>
+<div class="inventory-page p-4">
+
+  <!-- Page Header -->
+  <div class="page-header">
+    <div>
+      <h2>Inventory</h2>
+      <p>Manage everything currently available in your inventory.</p>
+    </div>
+  </div>
+
+
+     <!-- ================= MATERIALS ================= -->
+ 
+    <div class="inventory-section">
+
+    <div class="section-header">
+
+      <div class="section-info">
+
+        <div class="section-icon material-icon">
+          <i class="fa-solid fa-layer-group"></i>
+        </div>
+
+        <div>
+          <h3>Materials</h3>
+          <p>Your printing materials</p>
+        </div>
+
+      </div>
+
+      <span class="item-count">
+        {{ allInventory().filter(x => x.type == 'Material' || x.type == 'matrial').length }} Items
+      </span>
+
+    </div>
+
+
+    <div class="inventory-table-wrapper">
+
+      <table class="inventory-table">
+
+        <thead>
+          <tr>
+            <th>Material</th>
+            <th>Color</th>
+            <th>Current Stock</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            @for (inven of allInventory(); track $index) {
+                @if(inven.type == 'Material' || inven.type == 'matrial'){
+
+          <tr>
+
+            <td>
+              <div class="item-name">
+                <div class="item-mini-icon">
+                  <i class="fa-solid fa-box"></i>
+                </div>
+
+                <span> {{inven.name}} </span>
+              </div>
+            </td>
+
+            <td>
+              <span class="color-name">
+                <span class="color-dot"></span>
+                {{inven.color}}
+              </span>
+            </td>
+
+            <td>
+              <span class="stock">
+                {{inven.currentStock}}
+                <small>g</small>
+              </span>
+            </td>
+
+            <td>
+              <span class="status in-stock">
+                <span class="status-dot"></span>
+                In Stock
+              </span>
+            </td>
+
+          </tr>
+ }
+ }
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+ 
+
+  <!-- ================= SUPPLIES ================= -->
+
+  <div class="inventory-section">
+
+    <div class="section-header">
+
+      <div class="section-info">
+
+        <div class="section-icon supply-icon">
+          <i class="fa-solid fa-boxes-stacked"></i>
+        </div>
+
+        <div>
+          <h3>Supplies</h3>
+          <p>Consumable and supporting items</p>
+        </div>
+
+      </div>
+
+      <span class="item-count">
+        {{ allInventory().filter(x => x.type == 'Supply' || x.type == 'suplly').length }} Item
+      </span>
+
+    </div>
+
+
+    <div class="inventory-cards">
+
+      
+
+         @for (inven of allInventory(); track $index) {
+                @if(inven.type == 'Supply' || inven.type == 'suplly'){
+                    <div class="inventory-card">
+
+        <div class="card-top">
+
+          <div class="card-icon">
+            <i class="fa-solid fa-box"></i>
+          </div>
+
+          <span class="status in-stock">
+            <span class="status-dot"></span>
+            In Stock
+          </span>
+
+        </div>
+
+      
+        <div class="card-content">
+
+          <h4>{{inven.name}}</h4>
+
+          <p> {{inven.type}} </p>
+
+        </div>
+
+
+        <div class="card-footer">
+
+          <div class="card-detail">
+
+            <span>Stock</span>
+
+            <strong>
+              {{inven.currentStock}}
+            </strong>
+
+          </div>
+
+
+          <div class="card-detail value">
+
+            <span>Total Value</span>
+
+            <strong>
+              {{inven.totalValue}} <small>EGP</small>
+            </strong>
+
+          </div>
+
+        </div>
+        </div>
+    }}
+
+      </div>
+
+    </div>
+
+  
+
+  <!-- ================= OTHER ITEMS ================= -->
+
+  <div class="inventory-section">
+
+    <div class="section-header">
+
+      <div class="section-info">
+
+        <div class="section-icon other-icon">
+          <i class="fa-solid fa-cubes"></i>
+        </div>
+
+        <div>
+          <h3>Other Items</h3>
+          <p>Other items stored in inventory</p>
+        </div>
+
+      </div>
+
+      <span class="item-count">
+        {{ allInventory().filter(x => x.type == 'Other' || x.type == 'Other').length }} Item
+      </span>
+
+    </div>
+
+
+    <div class="inventory-cards">
+
+        @for (inven of allInventory(); track $index) {
+                @if(inven.type == 'Other' || inven.type == 'Other'){
+
+      <div class="inventory-card">
+
+        <div class="card-top">
+
+          <div class="card-icon">
+            <i class="fa-solid fa-cube"></i>
+          </div>
+
+
+
+        </div>
+
+
+        <div class="card-content">
+
+          <h4> {{inven.name}} </h4>
+
+          <p>{{inven.type}}</p>
+
+        </div>
+
+
+        <div class="card-footer">
+
+          <div class="card-detail">
+
+            <span>Stock</span>
+
+            <strong>
+              {{inven.currentStock}}
+            </strong>
+
+          </div>
+
+
+          <div class="card-detail value">
+
+            <span>Total Value</span>
+
+            <strong>
+              {{inven.totalValue}}<small>EGP</small>
+            </strong>
+
+          </div>
+
+        </div>
+
+      </div>
+    }}
+
+    </div>
+
+  </div>
+
+ 
+
+
+</div>

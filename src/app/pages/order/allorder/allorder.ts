@@ -1,12 +1,12 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { OrdersService } from '../../../core/services/orders/orderService';
 import { orderDetilas } from '../../../core/interfaces/order/order';
-import { DatePipe } from '@angular/common';
+import { DatePipe, DecimalPipe } from '@angular/common';
 
 @Component({
   selector: 'app-allorder',
-  imports: [RouterLink , DatePipe],
+  imports: [RouterLink , DatePipe , DecimalPipe],
   templateUrl: './allorder.html',
   styleUrl: './allorder.css',
 })
@@ -43,5 +43,11 @@ export class Allorder implements OnInit{
       }
     })
   }
+
+  totalPrice = computed(() => {
+  return this.allOrders().reduce((total, order) => {
+    return total + (order.finalPrice || 0);
+  }, 0);
+});
   
 }

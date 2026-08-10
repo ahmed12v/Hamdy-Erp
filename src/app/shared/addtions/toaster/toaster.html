@@ -1,0 +1,44 @@
+@if (visible()) {
+
+  <div
+    class="toast"
+    [class.success]="type() === 'success'"
+    [class.error]="type() === 'error'">
+
+    <div class="toast-icon">
+
+      @if (type() === 'success') {
+        <i class="fa-solid fa-check"></i>
+      }
+
+      @if (type() === 'error') {
+        <i class="fa-solid fa-xmark"></i>
+      }
+
+    </div>
+
+    <div class="toast-content">
+
+      <span class="toast-title">
+        {{ type() === 'success' ? 'Success' : 'Error' }}
+      </span>
+
+      <p>
+        {{ message() }}
+      </p>
+
+    </div>
+
+    <button
+      class="close-btn"
+      (click)="close()">
+
+      <i class="fa-solid fa-xmark"></i>
+
+    </button>
+
+    <div class="progress"></div>
+
+  </div>
+
+}
