@@ -397,3 +397,33 @@
   }
 
 }
+.trash-btn {
+  width: 32px;
+  height: 32px;
+  border: none;
+  border-radius: 8px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #fff1ed;
+  color: #ea5b23;
+
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.trash-btn i {
+  font-size: 13px;
+}
+
+.trash-btn:hover {
+  background: #ea5b23;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.trash-btn:active {
+  transform: scale(0.94);
+}

@@ -13,4 +13,8 @@ export class inventoryService{
     getAllInventory():Observable<inventory[]>{
         return this.http.get<inventory[]>(`${localUrl.url}Inventory`)
     }
+
+    deleteSupllay(id:number):Observable<any>{
+        return this.http.delete(`${localUrl.url}Inventory/item/${id}`)
+    }
 }

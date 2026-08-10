@@ -147,12 +147,20 @@
         </div>
 
       
-        <div class="card-content">
+         <div class="d-flex align-items-center">
+      <div class="card-content">
 
-          <h4>{{inven.name}}</h4>
+          <h4> {{inven.name}} </h4>
 
-          <p> {{inven.type}} </p>
+          <p>{{inven.type}}</p>
 
+        </div>
+
+        <div class="ms-auto">
+            <button class="trash-btn" (click)="deleteNow(inven.id)">
+                <i class="fa fa-solid fa-trash"></i>
+            </button>
+        </div>
         </div>
 
 
@@ -233,13 +241,23 @@
         </div>
 
 
-        <div class="card-content">
+        <div class="d-flex align-items-center">
+      <div class="card-content">
 
           <h4> {{inven.name}} </h4>
 
           <p>{{inven.type}}</p>
 
         </div>
+
+        <div class="ms-auto">
+            <button class="trash-btn" (click)="deleteNow(inven.id)">
+                <i class="fa fa-solid fa-trash"></i>
+            </button>
+        </div>
+        </div>
+
+       
 
 
         <div class="card-footer">
@@ -278,3 +296,4 @@
 
 
 </div>
+<app-toaster></app-toaster>
