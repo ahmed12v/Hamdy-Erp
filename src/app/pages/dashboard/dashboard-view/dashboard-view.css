@@ -1,0 +1,640 @@
+.dashboard {
+  min-height: 100%;
+  padding: 28px;
+  background: #f5f7fb;
+}
+
+
+/* ================= HEADER ================= */
+
+.dashboard-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.eyebrow,
+.card-label {
+  color: #ff5000;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.4px;
+}
+
+.dashboard-header h1 {
+  margin: 5px 0;
+  color: #0b1736;
+  font-size: 29px;
+  font-weight: 750;
+}
+
+.dashboard-header p {
+  margin: 0;
+  color: #8992a2;
+  font-size: 12px;
+}
+
+.dashboard-date {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 14px;
+
+  background: #fff;
+  border: 1px solid #edf0f5;
+  border-radius: 9px;
+
+  color: #737d8e;
+  font-size: 11px;
+}
+
+
+/* ================= STATS ================= */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.stat-card {
+  padding: 19px;
+
+  background: #fff;
+  border: 1px solid #edf0f5;
+  border-radius: 14px;
+
+  box-shadow: 0 3px 14px rgba(11, 23, 54, .035);
+}
+
+.stat-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.stat-icon {
+  width: 39px;
+  height: 39px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.stat-icon.orange {
+  background: #fff0e9;
+  color: #ff5000;
+}
+
+.stat-icon.navy {
+  background: #edf1f8;
+  color: #0b1736;
+}
+
+.stat-icon.purple {
+  background: #f1edff;
+  color: #7358d8;
+}
+
+.stat-icon.red {
+  background: #fff0f0;
+  color: #dc4b4b;
+}
+
+.stat-tag {
+  color: #a2a9b6;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.stat-info {
+  margin-top: 19px;
+}
+
+.stat-info > span {
+  color: #7f8999;
+  font-size: 11px;
+}
+
+.stat-info h2 {
+  margin: 5px 0 0;
+
+  color: #0b1736;
+  font-size: 26px;
+  font-weight: 750;
+}
+
+.stat-info h2 small {
+  color: #8c95a4;
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.stat-bottom {
+  margin-top: 10px;
+  color: #a0a8b6;
+  font-size: 9px;
+}
+
+
+/* ================= OVERVIEW ================= */
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: 1.5fr .85fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.overview-card,
+.simple-card {
+  background: #fff;
+  border: 1px solid #edf0f5;
+  border-radius: 14px;
+
+  box-shadow: 0 3px 14px rgba(11, 23, 54, .035);
+}
+
+.revenue-card {
+  padding: 22px;
+}
+
+.card-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.card-heading h3 {
+  margin: 5px 0 0;
+
+  color: #0b1736;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.card-subtitle {
+  margin: 4px 0 0;
+
+  color: #9aa2b0;
+  font-size: 10px;
+}
+
+.revenue-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
+  background: #fff0e9;
+  color: #ff5000;
+}
+
+.revenue-main {
+  margin-top: 34px;
+}
+
+.revenue-main span {
+  color: #8992a1;
+  font-size: 11px;
+}
+
+.revenue-main h2 {
+  margin: 6px 0 0;
+
+  color: #0b1736;
+  font-size: 31px;
+  font-weight: 750;
+}
+
+.revenue-main small {
+  color: #8c95a4;
+  font-size: 10px;
+}
+
+.revenue-bar {
+  height: 7px;
+
+  margin-top: 25px;
+
+  background: #f0f2f5;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.revenue-bar-fill {
+  width: 72%;
+  height: 100%;
+
+  background: #ff5000;
+  border-radius: 10px;
+}
+
+.revenue-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 12px;
+}
+
+.revenue-footer span {
+  color: #8992a1;
+  font-size: 9px;
+}
+
+.revenue-footer i {
+  color: #ff5000;
+  font-size: 6px;
+}
+
+.revenue-footer strong {
+  color: #0b1736;
+  font-size: 10px;
+}
+
+
+/* ================= PROFIT ================= */
+
+.profit-card {
+  padding: 22px;
+
+  background: #0b1736;
+  border-radius: 14px;
+
+  color: #fff;
+  box-shadow: 0 8px 25px rgba(11, 23, 54, .13);
+}
+
+.profit-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.profit-header span {
+  color: #7f8a9e;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+
+.profit-header h3 {
+  margin: 5px 0 0;
+  font-size: 15px;
+}
+
+.profit-icon {
+  width: 39px;
+  height: 39px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 80, 0, .13);
+  border-radius: 10px;
+
+  color: #ff5000;
+}
+
+.profit-value {
+  margin-top: 34px;
+}
+
+.profit-value > span {
+  color: #8893a7;
+  font-size: 10px;
+}
+
+.profit-value h2 {
+  margin: 5px 0;
+
+  color: #fff;
+  font-size: 30px;
+  font-weight: 750;
+}
+
+.profit-value small {
+  color: #7f8b9f;
+  font-size: 9px;
+}
+
+.profit-divider {
+  height: 1px;
+  margin: 25px 0 17px;
+
+  background: rgba(255,255,255,.08);
+}
+
+.profit-details {
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.profit-details div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profit-details span {
+  color: #818da2;
+  font-size: 9px;
+}
+
+.profit-details strong {
+  font-size: 11px;
+}
+
+.profit-details small {
+  color: #818da2;
+  font-size: 8px;
+}
+
+.profit-formula {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 20px;
+  padding: 10px;
+
+  background: rgba(255,255,255,.045);
+  border-radius: 7px;
+}
+
+.profit-formula span {
+  color: #8a95a7;
+  font-size: 9px;
+}
+
+.profit-formula strong {
+  color: #ff5000;
+  font-size: 9px;
+}
+
+
+/* ================= BOTTOM ================= */
+
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 16px;
+}
+
+.simple-card {
+  padding: 21px;
+}
+
+.orders-total {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+
+  padding: 7px 10px;
+
+  background: #fff0e9;
+  border-radius: 7px;
+
+  color: #ff5000;
+}
+
+.orders-total strong {
+  font-size: 13px;
+}
+
+.orders-total span {
+  font-size: 8px;
+}
+
+
+/* ================= ORDERS VISUAL ================= */
+
+.orders-visual {
+  min-height: 185px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 55px;
+}
+
+.orders-circle {
+  width: 135px;
+  height: 135px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      #fff 55%,
+      transparent 56%
+    ),
+    conic-gradient(
+      #ff5000 0 72%,
+      #edf0f5 72% 100%
+    );
+}
+
+.orders-circle > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.orders-circle strong {
+  color: #0b1736;
+  font-size: 27px;
+}
+
+.orders-circle span {
+  color: #9199a7;
+  font-size: 8px;
+}
+
+.orders-info {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.orders-info-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.orange-dot {
+  background: #ff5000;
+}
+
+.navy-dot {
+  background: #0b1736;
+}
+
+.orders-info-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.orders-info-item span {
+  color: #929aa8;
+  font-size: 9px;
+}
+
+.orders-info-item strong {
+  color: #0b1736;
+  font-size: 12px;
+}
+
+
+/* ================= SUMMARY ================= */
+
+.summary-item {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  padding: 15px 0;
+
+  border-bottom: 1px solid #f0f2f5;
+}
+
+.summary-item:last-child {
+  border-bottom: none;
+}
+
+.summary-icon {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 9px;
+  font-size: 12px;
+}
+
+.summary-icon.orange {
+  background: #fff0e9;
+  color: #ff5000;
+}
+
+.summary-icon.red {
+  background: #fff0f0;
+  color: #dc4b4b;
+}
+
+.summary-icon.green {
+  background: #eaf8f1;
+  color: #25a56a;
+}
+
+.summary-item > div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.summary-item span {
+  color: #8c95a3;
+  font-size: 9px;
+}
+
+.summary-item strong {
+  color: #0b1736;
+  font-size: 12px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1100px) {
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .overview-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 800px) {
+
+  .bottom-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .dashboard {
+    padding: 18px 14px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 24px;
+  }
+
+  .dashboard-date {
+    display: none;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .revenue-card,
+  .profit-card,
+  .simple-card {
+    padding: 18px;
+  }
+
+  .revenue-main h2 {
+    font-size: 27px;
+  }
+
+  .profit-value h2 {
+    font-size: 27px;
+  }
+
+  .orders-visual {
+    gap: 25px;
+  }
+
+  .orders-circle {
+    width: 115px;
+    height: 115px;
+  }
+
+}

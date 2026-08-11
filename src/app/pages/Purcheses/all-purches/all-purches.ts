@@ -3,6 +3,7 @@ import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { purchesServices } from '../../../core/services/purches/purcheService';
 import { PurcgesReq } from '../../../core/interfaces/purches/purches';
 import { Toaster } from '../../../shared/addtions/toaster/toaster';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-all-purches',
@@ -15,6 +16,7 @@ export class AllPurches {
   toast!: Toaster;
   _purcheService = inject(purchesServices)
   fb = inject(FormBuilder)
+  _location = inject(Location)
 
   purchaseForm = this.fb.group({
   purchaseNumber: [''],
@@ -51,4 +53,7 @@ addPurches(){
   }
 }
 
+back(){
+  this._location.back()
+}
 }

@@ -1,1 +1,459 @@
-<p>dashboard-view works!</p>
+<div class="dashboard">
+
+  <!-- Header -->
+  <div class="dashboard-header">
+    <div>
+      <span class="eyebrow">BUSINESS OVERVIEW</span>
+      <h1>Dashboard</h1>
+      <p>Monitor your business performance at a glance.</p>
+    </div>
+
+  </div>
+
+
+  <!-- ================= STAT CARDS ================= -->
+
+  <div class="stats-grid">
+
+    <!-- Orders -->
+    <div class="stat-card orders-card">
+
+      <div class="stat-card-top">
+        <div class="stat-icon orange">
+          <i class="fa-solid fa-cart-shopping"></i>
+        </div>
+
+        <span class="stat-tag">ORDERS</span>
+      </div>
+
+      <div class="stat-info">
+        <span>Total Orders</span>
+
+        <h2>
+          {{ allOrders().length }}
+        </h2>
+      </div>
+
+      <div class="stat-bottom">
+        <span>Orders currently recorded</span>
+      </div>
+
+    </div>
+
+
+    <!-- Customers -->
+    <div class="stat-card">
+
+      <div class="stat-card-top">
+        <div class="stat-icon navy">
+          <i class="fa-solid fa-users"></i>
+        </div>
+
+        <span class="stat-tag">CUSTOMERS</span>
+      </div>
+
+      <div class="stat-info">
+        <span>Total Customers</span>
+
+        <h2>
+          {{ customers().length }}
+        </h2>
+      </div>
+
+      <div class="stat-bottom">
+        <span>Registered customers</span>
+      </div>
+
+    </div>
+
+
+    <!-- Suppliers -->
+    <div class="stat-card">
+
+      <div class="stat-card-top">
+        <div class="stat-icon purple">
+          <i class="fa-solid fa-truck-field"></i>
+        </div>
+
+        <span class="stat-tag">SUPPLIERS</span>
+      </div>
+
+      <div class="stat-info">
+        <span>Total Suppliers</span>
+
+        <h2>
+          {{ allSupplier()?.data?.length ?? 0 }}
+        </h2>
+      </div>
+
+      <div class="stat-bottom">
+        <span>Registered suppliers</span>
+      </div>
+
+    </div>
+
+
+    <!-- Purchases -->
+    <div class="stat-card">
+
+      <div class="stat-card-top">
+        <div class="stat-icon red">
+          <i class="fa-solid fa-receipt"></i>
+        </div>
+
+        <span class="stat-tag">PURCHASES</span>
+      </div>
+
+      <div class="stat-info">
+        <span>Total Purchases</span>
+
+        <h2>
+          {{ numberTotal() ?? 0 | number:'1.2-2' }}
+          <small>EGP</small>
+        </h2>
+      </div>
+
+      <div class="stat-bottom">
+        <span>Current purchase cost</span>
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ================= FINANCIAL ================= -->
+
+  <div class="overview-grid">
+
+
+    <!-- Revenue -->
+    <div class="overview-card revenue-card">
+
+      <div class="card-heading">
+
+        <div>
+          <span class="card-label">FINANCIAL OVERVIEW</span>
+
+          <h3>
+            Orders Revenue
+          </h3>
+
+          <p class="card-subtitle">
+            Total value of all recorded orders
+          </p>
+        </div>
+
+        <div class="revenue-icon">
+          <i class="fa-solid fa-chart-line"></i>
+        </div>
+
+      </div>
+
+
+      <div class="revenue-main">
+
+        <span>Total Orders Value</span>
+
+        <h2>
+          {{ totalPrice() | number:'1.2-2' }}
+          <small>EGP</small>
+        </h2>
+
+      </div>
+
+
+      <div class="revenue-bar">
+
+        <div class="revenue-bar-fill"></div>
+
+      </div>
+
+
+      <div class="revenue-footer">
+
+        <span>
+          <i class="fa-solid fa-circle"></i>
+          Orders Revenue
+        </span>
+
+        <strong>
+          {{ totalPrice() | number:'1.2-2' }} EGP
+        </strong>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- Profit -->
+    <div class="profit-card">
+
+      <div class="profit-header">
+
+        <div>
+          <span>NET PROFIT</span>
+
+          <h3>
+            Profit Overview
+          </h3>
+        </div>
+
+        <div class="profit-icon">
+          <i class="fa-solid fa-arrow-trend-up"></i>
+        </div>
+
+      </div>
+
+
+      <div class="profit-value">
+
+        <span>Current Profit</span>
+
+        <h2>
+          {{
+            ((totalPrice() ?? 0) - (numberTotal() ?? 0))
+            | number:'1.2-2'
+          }}
+
+          <small>EGP</small>
+        </h2>
+
+      </div>
+
+
+      <div class="profit-divider"></div>
+
+
+      <div class="profit-details">
+
+        <div>
+
+          <span>Total Orders</span>
+
+          <strong>
+            {{ totalPrice() | number:'1.2-2' }}
+            <small>EGP</small>
+          </strong>
+
+        </div>
+
+
+        <div>
+
+          <span>Total Purchases</span>
+
+          <strong>
+            {{ numberTotal() ?? 0 | number:'1.2-2' }}
+            <small>EGP</small>
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <div class="profit-formula">
+
+        <span>Net Profit</span>
+
+        <strong>
+          Orders − Purchases
+        </strong>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ================= BOTTOM ================= -->
+
+  <div class="bottom-grid">
+
+
+    <!-- Orders Overview -->
+    <div class="simple-card orders-overview">
+
+      <div class="card-heading">
+
+        <div>
+          <span class="card-label">ORDERS</span>
+
+          <h3>
+            Orders Overview
+          </h3>
+
+          <p class="card-subtitle">
+            Current orders in the system
+          </p>
+        </div>
+
+
+        <div class="orders-total">
+
+          <strong>
+            {{ allOrders().length }}
+          </strong>
+
+          <span>
+            Orders
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="orders-visual">
+
+        <div class="orders-circle">
+
+          <div>
+
+            <strong>
+              {{ allOrders().length }}
+            </strong>
+
+            <span>
+              Total Orders
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <div class="orders-info">
+
+          <div class="orders-info-item">
+
+            <span class="dot orange-dot"></span>
+
+            <div>
+              <span>Orders</span>
+
+              <strong>
+                {{ allOrders().length }}
+              </strong>
+            </div>
+
+          </div>
+
+
+          <div class="orders-info-item">
+
+            <span class="dot navy-dot"></span>
+
+            <div>
+              <span>Total Value</span>
+
+              <strong>
+                {{ totalPrice() | number:'1.2-2' }} EGP
+              </strong>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <!-- Quick Summary -->
+    <div class="simple-card summary-card">
+
+      <div class="card-heading">
+
+        <div>
+          <span class="card-label">SUMMARY</span>
+
+          <h3>
+            Quick Overview
+          </h3>
+        </div>
+
+      </div>
+
+
+      <!-- Orders -->
+      <div class="summary-item">
+
+        <div class="summary-icon orange">
+
+          <i class="fa-solid fa-cart-shopping"></i>
+
+        </div>
+
+        <div>
+
+          <span>Orders Value</span>
+
+          <strong>
+            {{ totalPrice() | number:'1.2-2' }} EGP
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <!-- Purchases -->
+      <div class="summary-item">
+
+        <div class="summary-icon red">
+
+          <i class="fa-solid fa-money-bill-transfer"></i>
+
+        </div>
+
+        <div>
+
+          <span>Purchase Cost</span>
+
+          <strong>
+            {{ numberTotal() ?? 0 | number:'1.2-2' }} EGP
+          </strong>
+
+        </div>
+
+      </div>
+
+
+      <!-- Profit -->
+      <div class="summary-item">
+
+        <div class="summary-icon green">
+
+          <i class="fa-solid fa-arrow-trend-up"></i>
+
+        </div>
+
+        <div>
+
+          <span>Net Profit</span>
+
+          <strong>
+            {{
+              ((totalPrice() ?? 0) - (numberTotal() ?? 0))
+              | number:'1.2-2'
+            }}
+            EGP
+          </strong>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

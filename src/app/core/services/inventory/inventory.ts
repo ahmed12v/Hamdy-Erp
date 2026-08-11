@@ -17,4 +17,8 @@ export class inventoryService{
     deleteSupllay(id:number):Observable<any>{
         return this.http.delete(`${localUrl.url}Inventory/item/${id}`)
     }
+
+    totalPurces():Observable<any>{
+        return this.http.get(`${localUrl.url}Inventory/purchases-summary`)
+    }
 }
